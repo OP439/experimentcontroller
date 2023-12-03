@@ -13,13 +13,15 @@ print(requests.get('https://lab1.owainpill.de'))
 ### On a printer rotate we want to repeatedly take pictures so that silicone velocity can be calculated
 def job1():
     time.sleep(1)
+    print(requests.get('https://lab1.owainpill.de/takepicture'))# take a picture of the state before rotation
+    time.sleep(10)
     print(requests.get('https://lab1.owainpill.de/rotateprinter'))
     time.sleep(2)
     counter=0
     while counter < 30: 
         print(counter)
         print(requests.get('https://lab1.owainpill.de/takepicture'))
-        print(requests.get('https://lab1.owainpill.de/autotimer?timetonext=20'))# when in this loop we never hit the other notifier
+        print(requests.get('https://lab1.owainpill.de/autotimer?timetonext=20.1'))# when in this loop we never hit the other notifier
         counter+=1
         time.sleep(5)
 
