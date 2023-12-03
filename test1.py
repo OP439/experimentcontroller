@@ -27,6 +27,12 @@ def job2():
     print(requests.get('https://lab1.owainpill.de/toggleheater'))
     time.sleep(1)
 
+
+def job3():
+    time.sleep(1)
+    print(requests.get('https://lab1.owainpill.de/autotimer?timetonext='+str(schedule.idle_seconds())))
+    time.sleep(1)
+
         
 
 schedule.every(22).minutes.do(job1)#job to rotate printer and then trigger taking photos - do every 20/25 minuts
@@ -37,6 +43,9 @@ schedule.every(22).minutes.do(job1)#job to rotate printer and then trigger takin
 
 #toggle the heater every once in a while - random to keep it interesting
 schedule.every(20).to(35).minutes.do(job2)
+
+# keep the website updated with when commands are scheduled to be run from the script
+schedule.every(2).minutes.do(job3)
 
 while 1:
     schedule.run_pending()
