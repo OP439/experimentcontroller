@@ -19,6 +19,7 @@ def job1():
     while counter < 30: 
         print(counter)
         print(requests.get('https://lab1.owainpill.de/takepicture'))
+        print(requests.get('https://lab1.owainpill.de/autotimer?timetonext=20'))# when in this loop we never hit the other notifier
         counter+=1
         time.sleep(5)
 
