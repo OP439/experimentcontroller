@@ -36,16 +36,22 @@ def job2():
 #     print(requests.get('https://lab1.owainpill.de/autotimer?timetonext='+str(schedule.idle_seconds())))
 #     time.sleep(1)
 
-        
+time.sleep(20)
 
-schedule.every(22).minutes.do(job1)#job to rotate printer and then trigger taking photos - do every 20/25 minuts
+job1()
+
+time.sleep(5)
+
+job2()
+
+schedule.every(12).minutes.do(job1)#job to rotate printer and then trigger taking photos - do every 20/25 minuts
 # could also do at random intervals instead
 #schedule.every(3).seconds.do(job2)#job to rotate printer and then trigger taking photos - do every 20/25 minuts
 #schedule.every(3).seconds.do(job2)#job to rotate printer and then trigger taking photos - do every 20/25 minuts
 
 
 #toggle the heater every once in a while - random to keep it interesting
-schedule.every(20).to(35).minutes.do(job2)
+#schedule.every(20).to(35).minutes.do(job2)
 
 # keep the website updated with when commands are scheduled to be run from the script
 #schedule.every(2).minutes.do(job3) you always get this as next of course
