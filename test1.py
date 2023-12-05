@@ -40,9 +40,6 @@ time.sleep(20)
 
 job1()
 
-time.sleep(5)
-
-job2()
 
 schedule.every(12).minutes.do(job1)#job to rotate printer and then trigger taking photos - do every 20/25 minuts
 # could also do at random intervals instead
